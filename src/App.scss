@@ -1,0 +1,26 @@
+@use "sass:math";
+@import "./partials/variables.scss";
+@import "./partials/mixin.scss";
+
+.App {
+  @include screen(PC) {
+    display: grid;
+    grid-template-rows: 3fr 1.7fr;
+    //gap: $global-gap;
+    border-radius: $global-radius;
+    background-color: $main-color;
+    overflow:hidden;
+  }
+}
+
+@media (max-width: 1280px) {
+  .App {
+    @include screen(TL);
+  }
+}
+
+@media (max-width: 768px) {
+  .App {
+    @include screen(SP);
+  }
+}

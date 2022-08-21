@@ -1,0 +1,7 @@
+@import "./variables";
+
+@mixin screen($screen) {
+    width: width($screen);
+    min-height: height($screen);
+    @content;
+}

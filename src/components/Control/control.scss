@@ -1,0 +1,254 @@
+@import "../../partials/variables";
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Flex:opsz,wght@8..144,100;8..144,200;8..144,300;8..144,400;8..144,500;8..144,600;8..144,700;8..144,800&display=swap");
+
+
+div[id="control"] {
+    $play-size: 70px;
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.466);
+    width: 100%;
+    justify-self: center;
+    //order-radius: 10px;
+    box-shadow: 0px 5px 20px 1px rgba(51, 51, 51, 0.356);
+
+    svg {
+        flex: 0.1;
+    }
+
+    #start-stop-reset-area {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 2rem;
+        flex: 1;
+
+        button {
+            line-height: 0.8;
+            text-align: center;
+            border-radius: 50%;
+            background-color: transparent;
+            padding: 2px;
+            cursor: pointer;
+
+
+            &:nth-child(2) {
+                width: $play-size;
+                height: $play-size;
+                border: 2px solid #7454ef;
+
+            }
+
+            &:nth-child(1),
+            &:nth-child(3) {
+                width: $play-size/1.6;
+                height: $play-size/1.6;
+                border: 1px dashed #7454ef;
+                line-height: 0.5;
+                transition: 0.3s;
+            }
+
+            &:nth-child(3) {
+                transform-origin: 0;
+                //transform: rotate(-90deg) translate(15px, 15px);
+                transform: translate(0, -25px);
+            }
+
+            &:nth-child(1) {
+                visibility: hidden;
+            }
+
+
+            &:hover {
+                span {
+                    color: rgb(220, 220, 220);
+                    box-shadow: inset 1px 0px 10px 1px rgba(202, 202, 202, 0.295);
+                }
+
+                .icon-reset {
+                    color: rgb(188, 60, 14);
+                }
+            }
+
+            &:active {
+                .icon {
+                    transform: scale(0.8);
+                    color: rgb(123, 0, 255);
+                }
+            }
+
+            span {
+                display: block;
+                width: 100%;
+                height: 100%;
+                padding: 5px;
+                background-color: #7454ef;
+                border-radius: 50%;
+                color: white;
+                transition: 0.2s;
+            }
+
+            .icon {
+                transition: transform 0.1s, color 0.3s;
+            }
+
+            .icon-start {
+                width: 100%;
+                height: 100%;
+                border-radius: 50%;
+                padding: 5px 0px 5px 5px;
+            }
+
+            .icon-pause {
+                width: 70%;
+                height: 100%;
+                border-radius: 50%;
+                margin-left:2px;
+            }
+
+            .icon-stop {
+                width: 90%;
+                height: 100%;
+                padding: 0;
+            }
+
+            .icon-reset {
+                font-size: 1.6rem;
+                border-radius: 6px;
+                color: #7454ef;
+
+                &:hover {
+                    color: rgb(188, 60, 14);
+                }
+            }
+        }
+    }
+
+    #configuration-area {
+        display: flex;
+        flex: 0.7;
+        flex-direction: column;
+        justify-content: center;
+        padding: 0 2rem;
+        //border-radius: 0px 0px 10px 10px;
+        background-color: rgba(175, 175, 175, 0.226);
+        height: 35%;
+        width: 60%;
+        margin-bottom: 0rem;
+        border-radius: 1rem;
+        align-self: center;
+
+        &>div {
+            display: grid;
+            grid-template-columns: 30% 40% 30%;
+            height: 100%;
+            justify-content: space-between;
+            align-items: center;
+
+            &>span {
+                padding-top: 1px;
+                line-height: 0;
+            }
+        }
+
+        #session-bar {
+            border-bottom: 1px solid rgba(76, 76, 76, 0.19);
+        }
+
+        .value-box {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.7rem;
+            font-weight: 400;
+            text-align: center;
+            color: rgba(216, 216, 216, 0.753);
+            background-color: #c0c0c02a;
+            border-radius: 4px;
+            line-height: 1.5;
+            user-select: none;
+        }
+
+        .icon {
+            transition: transform 0.1s, color 0.3s;
+            font-size: 26px;
+            height: 100%;
+            color: #f0f0f09f;
+        }
+
+        .button-group {
+            display: flex;
+            justify-content: end;
+            gap: 5px;
+            height: 100%;
+            align-items: center;
+
+            button {
+                background-color: transparent;
+                border: none;
+                cursor: pointer;
+
+                span {
+                    display: block;
+                    line-height: 0.5;
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+
+            .add-sub {
+                background-color: transparent;
+                border: none;
+                transition: 0.2s;
+                transform-origin: center;
+
+                &:hover {
+                    color: rgb(223, 166, 75);
+                }
+
+                &:active {
+                    transform: scale(0.7);
+                }
+            }
+
+            .add {
+                color: #7454ef;
+                font-size: 2rem;
+            }
+
+            .sub {
+                color: #e251ef;
+                font-size: 2.1rem;
+            }
+        }
+    }
+
+    @media (max-width: 1280px) {
+        #configuration-area {
+            width: 70%;
+        }
+    }
+
+    @media (max-width: 768px) {
+        #configuration-area {
+            width: 80%;
+        }
+    }
+
+    .blank-div {
+        flex: 0.1;
+        background-color: transparent;
+        align-self:center;
+
+        &:first-child {
+            position:absolute;
+            margin-top:-13px;
+            background-color: rgb(255, 255, 255);
+            height: 4px;
+            width:70px;
+            justify-self:center;
+            border-radius:10px;
+            box-shadow:0px 0px 10px 1px rgba(58, 58, 58, 0.329);
+        }
+    }
+
+
+}

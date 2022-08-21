@@ -1,0 +1,45 @@
+@use "sass:math";
+@import "node_modules/sass-math/math";
+
+$global-gap: 20px;
+$global-radius: 10px;
+$align-center: 6px;
+$main-color: rgb(31, 31, 31); // #eef2f5;
+
+$dash-circle-r: 115;
+$outer-circle-r: calc($dash-circle-r - 15);
+$solid-progress-r: calc($dash-circle-r - 29);
+$inner-circle-r: calc($dash-circle-r - 45);
+$dash: 6.5 1.25;
+
+@function perimeterOf($r) {
+  @return $r * 2 * pi();
+}
+
+@function width($screen) {
+  @if $screen ==PC {
+    @return 370px;
+  }
+
+  @else if $screen ==TL {
+    @return 350px;
+  }
+
+  @else if $screen ==SP {
+    @return 300px;
+  }
+}
+
+@function height($screen) {
+  @if $screen ==PC {
+    @return 750px;
+  }
+
+  @else if $screen ==TL {
+    @return 700px;
+  }
+
+  @else if $screen ==SP {
+    @return 600px;
+  }
+}
