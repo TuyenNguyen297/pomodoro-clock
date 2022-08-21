@@ -66,7 +66,7 @@ export default function Clock() {
         if (JSON.stringify(currentLength) !== JSON.stringify(lastLength.current)) updateLength(currentLength);
 
         //const rollback = setInterval(() => countup(), 0);
-        const period = setInterval(() => countdown(), 0);
+        const period = setInterval(() => countdown(), 1000);
         return () => { clearInterval(period); /*clearInterval(rollback)*/ }
     }, [countdown, time, toggleReset])
 
